@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}О проекте{% endblock %}
+
+{% block content %}
+<section class="intro">
+  <h1>О проекте</h1>
+  <p>Учебный сайт, чтобы разобраться, как устроено веб-приложение на Python изнутри.</p>
+</section>
+
+<div class="about">
+  <h2>Как это работает</h2>
+  <p>Браузер отправляет запрос на сервер. Flask смотрит на адрес, находит нужную функцию в <code>app.py</code>, та берёт данные из <code>entries.json</code> и подставляет их в HTML-шаблон из папки <code>templates</code>. Готовая страница уходит обратно в браузер.</p>
+
+  <h2>Что внутри</h2>
+  <p><code>app.py</code> — вся логика: маршруты, чтение и запись файла.<br>
+  <code>templates/</code> — HTML-шаблоны на языке Jinja2.<br>
+  <code>static/style.css</code> — оформление.</p>
+</div>
+{% endblock %}

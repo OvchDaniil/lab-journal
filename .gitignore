@@ -1,0 +1,14 @@
+# Виртуальное окружение Python
+venv/
+.venv/
+
+# Кэш Python
+__pycache__/
+*.pyc
+
+# Личные данные — записи журнала не загружаем на GitHub
+entries.json
+
+# Системный мусор
+.DS_Store
+Thumbs.db

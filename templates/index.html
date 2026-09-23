@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="intro">
+  <h1>Журнал домашней лаборатории</h1>
+  <p>Записывай, что настроил, что сломалось и как починил. Через месяц ты себе скажешь спасибо.</p>
+</section>
+
+<form method="post" class="entry-form">
+  <label for="title">Что сделал</label>
+  <input id="title" name="title" placeholder="Поднял Ubuntu Server в VirtualBox" autocomplete="off">
+
+  <label for="text">Подробности</label>
+  <textarea id="text" name="text" rows="4" placeholder="Команды, ошибки, выводы"></textarea>
+
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+
+  <button type="submit">Сохранить запись</button>
+</form>
+
+<section class="entries">
+  {% if entries %}
+    {% for entry in entries %}
+      <article class="entry">
+        <div class="entry-head">
+          <h2>{{ entry.title }}</h2>
+          <time>{{ entry.date }}</time>
+        </div>
+        {% if entry.text %}<p>{{ entry.text }}</p>{% endif %}
+        <form method="post" action="{{ url_for('delete', number=loop.index0) }}">
+          <button class="link-button" type="submit">Удалить</button>
+        </form>
+      </article>
+    {% endfor %}
+  {% else %}
+    <p class="empty">Записей пока нет. Добавь первую через форму выше.</p>
+  {% endif %}
+</section>
+{% endblock %}

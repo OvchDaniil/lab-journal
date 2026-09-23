@@ -1,0 +1,149 @@
+/* Палитра: цвета терминала на тёмно-зелёной "плате" */
+:root {
+  --bg: #13201d;
+  --panel: #1b2c28;
+  --line: #2d4640;
+  --text: #d8e4df;
+  --muted: #8aa39b;
+  --accent: #f2b544;
+  --danger: #e2735f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.logo {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.prompt { color: var(--accent); }
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 1.25rem;
+}
+nav a:hover, nav a:focus-visible { color: var(--accent); }
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.intro h1 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin: 1.5rem 0 0.5rem;
+}
+.intro p { color: var(--muted); margin-top: 0; }
+
+.entry-form {
+  display: grid;
+  gap: 0.4rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+.entry-form label { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+
+input, textarea {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+}
+input:focus, textarea:focus, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button {
+  justify-self: start;
+  margin-top: 0.75rem;
+  background: var(--accent);
+  color: #1a1a1a;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error { color: var(--danger); margin: 0.25rem 0 0; }
+
+/* Записи оформлены как строки лога: полоска слева вместо карточек */
+.entry {
+  border-left: 3px solid var(--accent);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin-bottom: 1.75rem;
+}
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.entry h2 { font-size: 1.15rem; margin: 0; }
+.entry time {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.entry p { margin: 0.4rem 0 0; white-space: pre-wrap; }
+
+.link-button {
+  background: none;
+  color: var(--muted);
+  padding: 0;
+  margin-top: 0.4rem;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+.link-button:hover { color: var(--danger); }
+
+.empty { color: var(--muted); }
+
+.about h2 { font-size: 1.2rem; margin-top: 2rem; }
+code {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  background: var(--panel);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+}
