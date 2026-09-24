@@ -74,6 +74,27 @@ def delete(number):
     return redirect(url_for("index"))
 
 
+# Маршрут "/login" — учебная страница входа.
+# Настоящей авторизации здесь нет: мы только проверяем, что поля заполнены.
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = None    # текст ошибки, если поля не заполнены
+    message = None  # сообщение после успешной отправки формы
+
+    if request.method == "POST":
+        username = request.form.get("username", "").strip()
+        # Пароль берём только для проверки "заполнен или нет".
+        # Никуда его не сохраняем, не выводим на страницу и не печатаем в консоль.
+        password = request.form.get("password", "")
+
+        if not username or not password:
+            error = "Заполни и логин, и пароль."
+        else:
+            message = "Вход пока не работает — это учебная страница."
+
+    return render_template("login.html", error=error, message=message)
+
+
 @app.route("/about")
 def about():
     return render_template("about.html")
