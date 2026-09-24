@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<section class="intro">
+  <h1>Вход</h1>
+  <p>Учебная страница: настоящей авторизации пока нет.</p>
+</section>
+
+{# Используем тот же класс entry-form, что и форма на главной, — стиль будет одинаковым #}
+<form method="post" class="entry-form">
+  <label for="username">Логин</label>
+  <input id="username" name="username" autocomplete="username">
+
+  <label for="password">Пароль</label>
+  {# value не подставляем — пароль никогда не возвращается на страницу #}
+  <input id="password" name="password" type="password" autocomplete="current-password">
+
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  {% if message %}<p class="notice">{{ message }}</p>{% endif %}
+
+  <button type="submit">Войти</button>
+</form>
+{% endblock %}
