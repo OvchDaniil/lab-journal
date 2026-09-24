@@ -47,6 +47,8 @@ def index():
 
         if not title:
             error = "Введи заголовок записи."
+        elif len(title) > 100:
+            error = "Заголовок не должен быть длиннее 100 символов."
         else:
             entries = load_entries()
             entries.insert(0, {  # новые записи — сверху
