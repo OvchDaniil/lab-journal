@@ -98,6 +98,15 @@ button {
 
 .error { color: var(--danger); margin: 0.25rem 0 0; }
 
+/* Счётчик записей над списком — в стиле строки терминала */
+.counter {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+.counter span { color: var(--accent); }
+
 /* Записи оформлены как строки лога: полоска слева вместо карточек */
 .entry {
   border-left: 3px solid var(--accent);
